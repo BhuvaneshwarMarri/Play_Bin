@@ -12,8 +12,12 @@ LINE_WIDTH = 2
 COLORS = [(0, 102, 255), (255, 51, 51)]  # Vibrant Blue, Vibrant Red
 MAX_LINE_LENGTH = 80
 PADDING = 50
-EXTRA_HEIGHT = 100  # Extra height for the congratulation message
+EXTRA_HEIGHT = 100  # Message Height
 NEON_LEMON = (206, 255, 20)
+VIBRANT_YELLOW = (255, 255, 0)  # New color for nearby dots
+
+icon = pygame.image.load('./logo.png')  # Logo
+pygame.display.set_icon(icon)
 
 # Calculate dot positions
 dots = []
@@ -92,6 +96,7 @@ def update_congratulation_message():
             congratulation_message = "Red wins! Congratulations!"
         else:
             congratulation_message = "It's a tie! Well played!"
+        congratulation_timer = 300
     else:
         if scores[0] > scores[1]:
             congratulation_message = "Congratulations Blue! You're in the lead!"
@@ -99,7 +104,7 @@ def update_congratulation_message():
             congratulation_message = "Congratulations Red! You're in the lead!"
         else:
             congratulation_message = "It's a tie! The game is heating up!"
-    congratulation_timer = 180  # Show message for 3 seconds (60 frames per second)
+        congratulation_timer = 180  # Show message for 3 seconds (60 frames per second)
 
 # Precompute maximum possible triangles
 max_possible_triangles = 0
@@ -160,7 +165,7 @@ while running:
     # Draw dots
     for dot in dots:
         if dot in nearby_dots:
-            pygame.draw.circle(screen, (255, 255, 255), dot, DOT_RADIUS * 1.5)  # White for selected
+            pygame.draw.circle(screen, VIBRANT_YELLOW, dot, DOT_RADIUS * 1.5)  # Vibrant yellow for nearby dots
         else:
             pygame.draw.circle(screen, (255, 255, 255), dot, DOT_RADIUS)  # White for normal dots
 
