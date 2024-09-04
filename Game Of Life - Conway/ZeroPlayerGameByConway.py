@@ -4,7 +4,7 @@ import numpy as np
 COLOR_BG = (8, 8, 8)  
 COLOR_GRID = (19, 19, 19)  
 COLOR_DIE_NEXT = (255, 255, 255) 
-COLOR_ALIVE_NEXT = (255, 27, 45)  
+COLOR_ALIVE_NEXT = (255, 51, 51)
 SIZE = 10
 
 def update(screen, cells, size, with_progress=False):
